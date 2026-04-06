@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ethan Edmunds — Materials Scientist & PhD Researcher</title>
-  <meta name="description" content="PhD candidate at the University of Sheffield researching irradiation damage in fusion reactor materials. Funded by UKAEA. Founder of Edmunds."/>
+  <!-- Title and description are set from content.json -->
+  <title>Ethan Edmunds</title>
+  <meta name="description" content=""/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
 
@@ -14,18 +15,17 @@
             #e11d48 (red)   | #8b5cf6 (purple) | #ffffff (white)
        ============================================================ */
     :root {
-      --accent:       #3b82f6;
+      --accent:    #3b82f6;
 
-      /* ── everything else ── */
-      --bg:           #0c0c0c;
-      --surface:      #141414;
-      --surface2:     #1a1a1a;
-      --border:       #222222;
-      --border-lt:    #2e2e2e;
-      --text:         #f5f5f5;
-      --text-2:       #a0a0a0;
-      --text-3:       #555555;
-      --font:         'Inter', system-ui, sans-serif;
+      --bg:        #0c0c0c;
+      --surface:   #141414;
+      --surface2:  #1a1a1a;
+      --border:    #222222;
+      --border-lt: #2e2e2e;
+      --text:      #f5f5f5;
+      --text-2:    #a0a0a0;
+      --text-3:    #555555;
+      --font:      'Inter', system-ui, sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,14 +40,11 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border-lt); border-radius: 2px; }
 
-    /* ─────────────────────────────────────────
-       NAV
-    ───────────────────────────────────────── */
+    /* ── NAV ── */
     nav {
       position: fixed;
       inset: 0 0 auto 0;
@@ -62,16 +59,13 @@
       backdrop-filter: blur(10px);
     }
 
-    .nav-logo {
+    .nav-wordmark {
       font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       color: var(--text);
       text-decoration: none;
     }
-
-    .nav-logo span { color: var(--accent); }
 
     .nav-links {
       list-style: none;
@@ -90,9 +84,7 @@
 
     .nav-links a:hover { color: var(--text); }
 
-    /* ─────────────────────────────────────────
-       HERO
-    ───────────────────────────────────────── */
+    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -126,7 +118,7 @@
       animation: up 0.7s 0.2s ease forwards;
     }
 
-    .hero-sub {
+    .hero-tagline {
       font-size: clamp(1rem, 2vw, 1.25rem);
       font-weight: 300;
       color: var(--text-2);
@@ -137,10 +129,7 @@
       animation: up 0.7s 0.3s ease forwards;
     }
 
-    .hero-sub strong {
-      color: var(--text);
-      font-weight: 500;
-    }
+    .hero-tagline strong { color: var(--text); font-weight: 500; }
 
     .hero-btns {
       display: flex;
@@ -164,27 +153,15 @@
       border: none;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.15);
-      transform: translateY(-1px);
-    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { filter: brightness(1.15); transform: translateY(-1px); }
 
     .btn-ghost {
       background: transparent;
       color: var(--text-2);
       border: 1px solid var(--border-lt);
     }
-
-    .btn-ghost:hover {
-      border-color: var(--text-2);
-      color: var(--text);
-      transform: translateY(-1px);
-    }
+    .btn-ghost:hover { border-color: var(--text-2); color: var(--text); transform: translateY(-1px); }
 
     .hero-footnote {
       margin-top: 4rem;
@@ -196,8 +173,6 @@
       opacity: 0;
       animation: up 0.7s 0.55s ease forwards;
     }
-
-    .fn-item { }
 
     .fn-label {
       font-size: 0.62rem;
@@ -214,9 +189,7 @@
       color: var(--text-2);
     }
 
-    /* ─────────────────────────────────────────
-       SHARED SECTION STYLES
-    ───────────────────────────────────────── */
+    /* ── SHARED SECTION ── */
     .section {
       max-width: 900px;
       margin: 0 auto;
@@ -242,61 +215,8 @@
       line-height: 1.2;
     }
 
-    /* ─────────────────────────────────────────
-       ABOUT
-    ───────────────────────────────────────── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 240px;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-body p {
-      color: var(--text-2);
-      font-size: 0.95rem;
-      line-height: 1.8;
-      margin-bottom: 1.1rem;
-    }
-
-    .about-body p:last-child { margin-bottom: 0; }
-    .about-body strong { color: var(--text); font-weight: 500; }
-
-    .about-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-
-    .sidebar-row {
-      padding: 0.9rem 1.1rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .sidebar-row:last-child { border-bottom: none; }
-
-    .sidebar-key {
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      margin-bottom: 0.2rem;
-    }
-
-    .sidebar-val {
-      font-size: 0.8rem;
-      color: var(--text-2);
-      line-height: 1.45;
-    }
-
-    /* ─────────────────────────────────────────
-       EXPERIENCE — FEATURED AREAS
-    ───────────────────────────────────────── */
-    .featured-grid {
+    /* ── WORK & INTERESTS — 3-COL CARD GRID ── */
+    .card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
@@ -304,18 +224,17 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
-      margin-bottom: 1.5rem;
     }
 
-    .featured-card {
+    .card-grid-item {
       background: var(--surface);
       padding: 1.8rem;
       transition: background 0.2s;
     }
 
-    .featured-card:hover { background: var(--surface2); }
+    .card-grid-item:hover { background: var(--surface2); }
 
-    .featured-card-n {
+    .card-n {
       font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -324,7 +243,7 @@
       margin-bottom: 0.5rem;
     }
 
-    .featured-card-badge {
+    .card-label {
       display: inline-block;
       font-size: 0.58rem;
       font-weight: 600;
@@ -338,13 +257,7 @@
       border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
     }
 
-    .featured-card-badge-upcoming {
-      background: rgba(245,158,11,0.1);
-      color: #f59e0b;
-      border: 1px solid rgba(245,158,11,0.25);
-    }
-
-    .featured-card-title {
+    .card-title {
       font-size: 1rem;
       font-weight: 600;
       color: var(--text);
@@ -352,39 +265,38 @@
       line-height: 1.3;
     }
 
-    .featured-card-org {
+    .card-org {
       font-size: 0.72rem;
       color: var(--text-3);
       letter-spacing: 0.03em;
       margin-bottom: 0.8rem;
     }
 
-    .featured-card-desc {
+    .card-body {
       font-size: 0.82rem;
       color: var(--text-2);
       line-height: 1.75;
     }
 
-    .exp-cv-link {
+    .section-footnote {
+      margin-top: 1.2rem;
       font-size: 0.72rem;
       color: var(--text-3);
       text-decoration: none;
       letter-spacing: 0.03em;
+      display: inline-block;
       transition: color 0.15s;
     }
+    .section-footnote:hover { color: var(--text-2); }
 
-    .exp-cv-link:hover { color: var(--text-2); }
-
-    /* ─────────────────────────────────────────
-       RESEARCH
-    ───────────────────────────────────────── */
-    .research-cards {
+    /* ── RESEARCH — STACKED CARDS ── */
+    .research-list {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
 
-    .research-card {
+    .research-item {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -394,10 +306,10 @@
       transition: opacity 0.5s, transform 0.5s, border-color 0.2s;
     }
 
-    .research-card.show { opacity: 1; transform: none; }
-    .research-card:hover { border-color: var(--border-lt); }
+    .research-item.reveal { opacity: 1; transform: none; }
+    .research-item:hover { border-color: var(--border-lt); }
 
-    .rc-meta {
+    .badge-row {
       display: flex;
       align-items: center;
       gap: 0.6rem;
@@ -405,7 +317,7 @@
       flex-wrap: wrap;
     }
 
-    .rc-badge {
+    .badge {
       font-size: 0.6rem;
       font-weight: 600;
       letter-spacing: 0.08em;
@@ -414,25 +326,19 @@
       border-radius: 3px;
     }
 
-    .rc-badge-active {
+    .badge-active {
       background: color-mix(in srgb, var(--accent) 12%, transparent);
       color: var(--accent);
       border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
     }
 
-    .rc-badge-pub {
+    .badge-pub {
       background: rgba(245,245,245,0.06);
       color: var(--text-2);
       border: 1px solid var(--border-lt);
     }
 
-    .rc-badge-project {
-      background: rgba(16,185,129,0.1);
-      color: #10b981;
-      border: 1px solid rgba(16,185,129,0.25);
-    }
-
-    .rc-title {
+    .research-title {
       font-size: 1rem;
       font-weight: 600;
       color: var(--text);
@@ -440,14 +346,14 @@
       margin-bottom: 0.7rem;
     }
 
-    .rc-desc {
+    .research-desc {
       font-size: 0.85rem;
       color: var(--text-2);
       line-height: 1.75;
       margin-bottom: 1rem;
     }
 
-    .rc-link {
+    .research-link {
       font-size: 0.72rem;
       font-weight: 500;
       color: var(--accent);
@@ -456,67 +362,9 @@
       transition: opacity 0.15s;
     }
 
-    .rc-link:hover { opacity: 0.75; }
+    .research-link:hover { opacity: 0.75; }
 
-    /* ─────────────────────────────────────────
-       VISION
-    ───────────────────────────────────────── */
-    .vision-quote {
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      font-weight: 300;
-      color: var(--text-2);
-      line-height: 1.75;
-      max-width: 660px;
-      margin-bottom: 3rem;
-      border-left: 2px solid var(--accent);
-      padding-left: 1.5rem;
-    }
-
-    .vision-quote strong { color: var(--text); font-weight: 500; }
-
-    .vision-pillars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .pillar {
-      background: var(--surface);
-      padding: 1.8rem;
-      transition: background 0.2s;
-    }
-
-    .pillar:hover { background: var(--surface2); }
-
-    .pillar-n {
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.6rem;
-    }
-
-    .pillar-t {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-      line-height: 1.3;
-    }
-
-    .pillar-d {
-      font-size: 0.8rem;
-      color: var(--text-2);
-      line-height: 1.7;
-    }
-
-    /* ─────────────────────────────────────────
-       CONTACT
-    ───────────────────────────────────────── */
+    /* ── CONTACT ── */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -537,7 +385,7 @@
       line-height: 1.7;
     }
 
-    .contact-items {
+    .contact-links {
       display: flex;
       flex-direction: column;
       gap: 0;
@@ -546,7 +394,7 @@
       overflow: hidden;
     }
 
-    .contact-row {
+    .contact-link {
       display: flex;
       align-items: center;
       gap: 1rem;
@@ -558,10 +406,10 @@
       transition: background 0.15s, color 0.15s;
     }
 
-    .contact-row:last-child { border-bottom: none; }
-    .contact-row:hover { background: var(--surface2); color: var(--text); }
+    .contact-link:last-child { border-bottom: none; }
+    .contact-link:hover { background: var(--surface2); color: var(--text); }
 
-    .contact-row-type {
+    .contact-link-type {
       font-size: 0.6rem;
       font-weight: 600;
       letter-spacing: 0.1em;
@@ -570,9 +418,7 @@
       min-width: 60px;
     }
 
-    /* ─────────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────────── */
+    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 1.8rem 2.5rem;
@@ -583,11 +429,10 @@
       align-items: center;
     }
 
-    .footer-logo {
+    .footer-wordmark {
       font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       color: var(--text-3);
       text-decoration: none;
     }
@@ -597,24 +442,18 @@
       color: var(--text-3);
     }
 
-    /* ─────────────────────────────────────────
-       ANIMATIONS
-    ───────────────────────────────────────── */
+    /* ── ANIMATIONS ── */
     @keyframes up {
       from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: none; }
     }
 
-    /* ─────────────────────────────────────────
-       RESPONSIVE
-    ───────────────────────────────────────── */
+    /* ── RESPONSIVE ── */
     @media (max-width: 720px) {
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
       .hero, .section { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .about-grid { grid-template-columns: 1fr; }
-      .featured-grid { grid-template-columns: 1fr; }
-      .vision-pillars { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       footer { flex-direction: column; gap: 0.75rem; text-align: center; }
     }
@@ -623,203 +462,267 @@
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">E<span>.</span>dmunds</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero">
-    <p class="hero-kicker">Materials Scientist &nbsp;·&nbsp; Doctoral Researcher &nbsp;·&nbsp; Founder</p>
-    <h1 class="hero-name">Ethan Edmunds</h1>
-    <p class="hero-sub">
-      PhD candidate at the University of Sheffield researching <strong>irradiation damage in fusion reactor materials</strong>. Funded by UKAEA. Building <strong>Edmunds</strong> — a science, engineering and technology company for the long term.
-    </p>
-    <div class="hero-btns">
-      <a href="#research" class="btn btn-primary">My Research</a>
-      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
-    </div>
-    <div class="hero-footnote">
-      <div class="fn-item">
-        <div class="fn-label">Current Role</div>
-        <div class="fn-val">PhD Candidate, Sheffield</div>
-      </div>
-      <div class="fn-item">
-        <div class="fn-label">Funded By</div>
-        <div class="fn-val">EPSRC CDT &amp; UKAEA</div>
-      </div>
-      <div class="fn-item">
-        <div class="fn-label">Based</div>
-        <div class="fn-val">Sheffield, UK</div>
-      </div>
-      <div class="fn-item">
-        <div class="fn-label">Building</div>
-        <div class="fn-val">Edmunds</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <p class="section-tag">About</p>
-    <h2 class="section-title">Engineer, Scientist, Builder.</h2>
-    <div class="about-grid">
-      <div class="about-body">
-        <p>I'm a materials scientist working at the intersection of <strong>nuclear energy, advanced materials, and computational modelling</strong>. My PhD at Sheffield, jointly funded by the EPSRC CDT in Fusion Power and the UK Atomic Energy Authority, focuses on how irradiation damage governs the structural performance of fusion reactor components.</p>
-        <p>Before materials, I studied <strong>Aerospace Engineering</strong> at Sheffield — graduating with a First Class degree, specialising in aeromechanics. My undergraduate research on machine learning classification of defects in additively manufactured metals was published in <strong>Materials Science and Technology</strong>.</p>
-        <p>I've done two stints at <strong>AtkinsRéalis</strong> working on nuclear facility design, structural analysis, and virtual site access. I've also worked in software in Singapore, and led engineering teams on student rocketry and aircraft projects.</p>
-        <p>Alongside my PhD, I'm laying the foundations of <strong>Edmunds</strong> — built around a simple belief: we can do better.</p>
-      </div>
-      <div class="about-sidebar">
-        <div class="sidebar-row">
-          <div class="sidebar-key">PhD</div>
-          <div class="sidebar-val">Materials Science &amp; Engineering<br>University of Sheffield, 2024–</div>
-        </div>
-        <div class="sidebar-row">
-          <div class="sidebar-key">BEng</div>
-          <div class="sidebar-val">Aerospace Engineering, 1st Class<br>University of Sheffield, 2021–2024</div>
-        </div>
-        <div class="sidebar-row">
-          <div class="sidebar-key">Sponsor</div>
-          <div class="sidebar-val">UK Atomic Energy Authority<br>EPSRC CDT in Fusion Power</div>
-        </div>
-        <div class="sidebar-row">
-          <div class="sidebar-key">Published</div>
-          <div class="sidebar-val">Materials Science &amp; Technology, 2024</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="section" id="experience">
-    <p class="section-tag">Experience</p>
-    <h2 class="section-title">Featured Areas.</h2>
-    <div class="featured-grid">
-
-      <div class="featured-card">
-        <div class="featured-card-n">01</div>
-        <div class="featured-card-badge">Nuclear &amp; Industrial</div>
-        <h3 class="featured-card-title">Engineering in the Nuclear Sector</h3>
-        <p class="featured-card-org">AtkinsRéalis Ltd. · Sheffield · 2022–2023</p>
-        <p class="featured-card-desc">Two summers working across structural and nuclear engineering — from FEA on tidal gate structures and modular decommissioning concepts, to coordinating 3D scanning of nuclear sites across the UK and producing loading calculations for nuclear facilities.</p>
-      </div>
-
-      <div class="featured-card">
-        <div class="featured-card-n">02</div>
-        <div class="featured-card-badge featured-card-badge-upcoming">Upcoming · 2025</div>
-        <h3 class="featured-card-title">Science Policy</h3>
-        <p class="featured-card-org">Dept. for Energy Security &amp; Net Zero (DESNZ) · London</p>
-        <p class="featured-card-desc">Placement with DESNZ working at the interface of science, engineering and government — engaging with energy transition policy, fusion and advanced nuclear strategy, and the role of research in informing national energy decisions.</p>
-      </div>
-
-      <div class="featured-card">
-        <div class="featured-card-n">03</div>
-        <div class="featured-card-badge">Academia &amp; Teaching</div>
-        <h3 class="featured-card-title">Research, Teaching &amp; Engineering Leadership</h3>
-        <p class="featured-card-org">University of Sheffield · 2021–Present</p>
-        <p class="featured-card-desc">Graduate Teaching Assistant across the Faculty of Engineering (Mechatronics, Aerospace Design). Previously led analysis and structural design teams on Project Sunride and Project Hex — a high-power rocketry team and a student VTOL aircraft programme.</p>
-      </div>
-
-    </div>
-    <a href="https://linkedin.com/in/ethanedmunds" target="_blank" rel="noopener noreferrer" class="exp-cv-link">Full CV on LinkedIn →</a>
-  </section>
-
-  <!-- RESEARCH & PROJECTS -->
-  <section class="section" id="research">
-    <p class="section-tag">Research &amp; Projects</p>
-    <h2 class="section-title">Research, Ventures &amp; Projects.</h2>
-    <div class="research-cards">
-
-      <div class="research-card">
-        <div class="rc-meta">
-          <span class="rc-badge rc-badge-active">Active · PhD</span>
-          <span class="rc-badge rc-badge-pub">University of Sheffield &amp; UKAEA</span>
-        </div>
-        <h3 class="rc-title">Dislocation Mobility in the Presence of Abundant Point Defects</h3>
-        <p class="rc-desc">Simulating how irradiation damage affects creep performance in fusion reactor structural components. Spans atomistic simulations, mesoscale modelling, and crystal plasticity — connecting nanoscale physics to real-world structural behaviour. Supervised by Prof. Christopher Race, Prof. Hector Basoalto-Ibarra, and Dr. Chris Hardie (UKAEA).</p>
-      </div>
-
-      <div class="research-card">
-        <div class="rc-meta">
-          <span class="rc-badge rc-badge-pub">Published · 2024</span>
-          <span class="rc-badge rc-badge-pub">Materials Science &amp; Technology</span>
-        </div>
-        <h3 class="rc-title">Classification of Microstructural Defects in Additively Manufactured Aerospace Metals using Machine Learning</h3>
-        <p class="rc-desc">Machine learning techniques applied to identify and classify internal defects in additively manufactured metal components — with direct implications for structural integrity assurance in aerospace and high-performance manufacturing.</p>
-        <a href="https://doi.org/10.1177/02670836241308470" target="_blank" rel="noopener noreferrer" class="rc-link">Read paper → DOI: 10.1177/02670836241308470</a>
-      </div>
-
-      <div class="research-card">
-        <div class="rc-meta">
-          <span class="rc-badge rc-badge-project">Active · Venture</span>
-        </div>
-        <h3 class="rc-title">Edmunds</h3>
-        <p class="rc-desc">A science, engineering and technology company built for the long term. Founded alongside the PhD — developing the foundations of what Edmunds will become. Built around a simple belief: we can do better.</p>
-      </div>
-
-      <div class="research-card">
-        <div class="rc-meta">
-          <span class="rc-badge rc-badge-project">Project · Engineering</span>
-          <span class="rc-badge rc-badge-pub">University of Sheffield · 2023–2024</span>
-        </div>
-        <h3 class="rc-title">Project Sunride &amp; Project Hex</h3>
-        <p class="rc-desc">Analysis Team Lead on Project Sunride — CFD optimisation of rocket fins for the Karman Bravo high-power rocket. Structural Design Engineer on Project Hex — payload deployment systems and aerodynamic analysis for a student-built VTOL aircraft.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <p class="section-tag">Contact</p>
-    <h2 class="section-title">Get in Touch.</h2>
-    <div class="contact-grid">
-      <div>
-        <p class="contact-intro">Open to conversations about nuclear materials, fusion energy, advanced manufacturing, and early-stage collaboration.</p>
-        <p class="contact-sub">Whether you're from industry, academia, or just curious — I'd be glad to hear from you. Based in Sheffield, open to conferences, research visits, and partnerships.</p>
-      </div>
-      <div class="contact-items">
-        <a href="mailto:ethanedmunds15@gmail.com" class="contact-row">
-          <span class="contact-row-type">Email</span>
-          ethanedmunds15@gmail.com
-        </a>
-        <a href="https://linkedin.com/in/ethanedmunds" target="_blank" rel="noopener noreferrer" class="contact-row">
-          <span class="contact-row-type">LinkedIn</span>
-          linkedin.com/in/ethanedmunds
-        </a>
-        <a href="https://orcid.org/0009-0007-2323-5696" target="_blank" rel="noopener noreferrer" class="contact-row">
-          <span class="contact-row-type">ORCID</span>
-          0009-0007-2323-5696
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <a href="#" class="footer-logo">Edmunds</a>
-    <span class="footer-copy">© 2026 Ethan Edmunds · Sheffield, UK · edmundsindustries.com</span>
-  </footer>
+  <nav id="nav"></nav>
+  <div id="hero"></div>
+  <main id="main"></main>
+  <footer id="footer"></footer>
 
   <script>
-    // Scroll-reveal for experience + research cards
-    const items = document.querySelectorAll('.exp-item, .research-card');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('show'), i * 80);
-          observer.unobserve(e.target);
-        }
+    // ── RENDER HELPERS ────────────────────────────────────────────
+
+    function el(tag, cls, html) {
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (html !== undefined) e.innerHTML = html;
+      return e;
+    }
+
+    function txt(tag, cls, text) {
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      e.textContent = text;
+      return e;
+    }
+
+    // ── RENDERERS ─────────────────────────────────────────────────
+
+    function renderNav(d) {
+      const nav = document.getElementById('nav');
+
+      const wordmark = el('a', 'nav-wordmark');
+      wordmark.href = '#';
+      wordmark.textContent = d.wordmark;
+
+      const ul = el('ul', 'nav-links');
+      d.links.forEach(link => {
+        const li = document.createElement('li');
+        const a = el('a');
+        a.href = link.href;
+        a.textContent = link.label;
+        li.appendChild(a);
+        ul.appendChild(li);
       });
-    }, { threshold: 0.1 });
-    items.forEach(el => observer.observe(el));
+
+      nav.setAttribute('aria-label', 'Main navigation');
+      nav.appendChild(wordmark);
+      nav.appendChild(ul);
+    }
+
+    function renderHero(d) {
+      const root = document.getElementById('hero');
+      root.className = 'hero';
+
+      const kicker = txt('p', 'hero-kicker', d.kicker);
+
+      const name = txt('h1', 'hero-name', d.name);
+
+      const tagline = el('p', 'hero-tagline', d.tagline);
+
+      const btns = el('div', 'hero-btns');
+      d.buttons.forEach(b => {
+        const a = el('a', `btn btn-${b.style}`);
+        a.href = b.href;
+        a.textContent = b.label;
+        btns.appendChild(a);
+      });
+
+      const footnote = el('div', 'hero-footnote');
+      d.footnotes.forEach(f => {
+        const item = el('div', 'fn-item');
+        item.appendChild(txt('div', 'fn-label', f.label));
+        item.appendChild(txt('div', 'fn-val', f.value));
+        footnote.appendChild(item);
+      });
+
+      [kicker, name, tagline, btns, footnote].forEach(n => root.appendChild(n));
+    }
+
+    function renderCardGrid(d, withLinkedIn) {
+      const section = el('section', 'section');
+      section.id = d.tag.toLowerCase().replace(/\s+/g, '-');
+
+      section.appendChild(txt('p', 'section-tag', d.tag));
+      section.appendChild(txt('h2', 'section-title', d.title));
+
+      const grid = el('div', 'card-grid');
+
+      d.cards.forEach(card => {
+        const item = el('div', 'card-grid-item');
+
+        item.appendChild(txt('div', 'card-n', card.n));
+
+        if (card.label) {
+          item.appendChild(txt('div', 'card-label', card.label));
+        }
+
+        item.appendChild(txt('h3', 'card-title', card.title));
+
+        if (card.org) {
+          item.appendChild(txt('p', 'card-org', card.org));
+        }
+
+        item.appendChild(el('p', 'card-body', card.body));
+
+        grid.appendChild(item);
+      });
+
+      section.appendChild(grid);
+
+      if (withLinkedIn) {
+        const link = el('a', 'section-footnote');
+        link.href = 'https://linkedin.com/in/ethanedmunds';
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'Full CV on LinkedIn →';
+        section.appendChild(link);
+      }
+
+      return section;
+    }
+
+    function renderResearch(d) {
+      const section = el('section', 'section');
+      section.id = 'research';
+
+      section.appendChild(txt('p', 'section-tag', d.tag));
+      section.appendChild(txt('h2', 'section-title', d.title));
+
+      const list = el('div', 'research-list');
+
+      d.items.forEach(item => {
+        const card = el('div', 'research-item');
+
+        const badges = el('div', 'badge-row');
+        item.badges.forEach(b => {
+          badges.appendChild(txt('span', `badge badge-${b.type}`, b.text));
+        });
+        card.appendChild(badges);
+
+        card.appendChild(txt('h3', 'research-title', item.title));
+        card.appendChild(el('p', 'research-desc', item.description));
+
+        if (item.link) {
+          const a = el('a', 'research-link');
+          a.href = item.link.href;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.textContent = item.link.label;
+          card.appendChild(a);
+        }
+
+        list.appendChild(card);
+      });
+
+      section.appendChild(list);
+      return section;
+    }
+
+    function renderContact(d) {
+      const section = el('section', 'section');
+      section.id = 'contact';
+
+      section.appendChild(txt('p', 'section-tag', d.tag));
+      section.appendChild(txt('h2', 'section-title', d.title));
+
+      const grid = el('div', 'contact-grid');
+
+      const left = el('div');
+      left.appendChild(txt('p', 'contact-intro', d.intro));
+      left.appendChild(txt('p', 'contact-sub', d.sub));
+
+      const right = el('div', 'contact-links');
+      d.links.forEach(link => {
+        const a = el('a', 'contact-link');
+        a.href = link.href;
+        if (!link.href.startsWith('mailto:')) {
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+        }
+        a.appendChild(txt('span', 'contact-link-type', link.type));
+        a.appendChild(document.createTextNode(link.label));
+        right.appendChild(a);
+      });
+
+      grid.appendChild(left);
+      grid.appendChild(right);
+      section.appendChild(grid);
+      return section;
+    }
+
+    function renderFooter(d) {
+      const footer = document.getElementById('footer');
+
+      const wordmark = el('a', 'footer-wordmark');
+      wordmark.href = '#';
+      wordmark.textContent = d.wordmark;
+
+      const copy = txt('span', 'footer-copy', d.copy);
+
+      footer.appendChild(wordmark);
+      footer.appendChild(copy);
+    }
+
+    // ── SCROLL REVEAL ─────────────────────────────────────────────
+
+    function initScrollReveal() {
+      const targets = document.querySelectorAll('.research-item');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('reveal'), i * 80);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      targets.forEach(el => observer.observe(el));
+    }
+
+    // ── INIT ──────────────────────────────────────────────────────
+
+    async function init() {
+      let data;
+      try {
+        const res = await fetch('./content.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        data = await res.json();
+      } catch (err) {
+        document.body.innerHTML = `
+          <div style="padding:4rem 2.5rem;font-family:system-ui;color:#a0a0a0">
+            <p style="color:#f5f5f5;font-weight:600;margin-bottom:0.5rem">Could not load content.json</p>
+            <p style="font-size:0.85rem">Open the site via a local server rather than opening the HTML file directly.<br>
+            Run: <code style="background:#1a1a1a;padding:0.2rem 0.4rem;border-radius:3px">python3 -m http.server</code>
+            then visit <code style="background:#1a1a1a;padding:0.2rem 0.4rem;border-radius:3px">http://localhost:8000</code></p>
+          </div>`;
+        return;
+      }
+
+      // Meta
+      document.title = data.meta.title;
+      document.querySelector('meta[name="description"]').content = data.meta.description;
+
+      // Sections
+      renderNav(data.nav);
+      renderHero(data.hero);
+
+      const main = document.getElementById('main');
+
+      const workSection = renderCardGrid(data.work, true);
+      workSection.id = 'work';
+      main.appendChild(workSection);
+
+      const interestsSection = renderCardGrid(data.interests, false);
+      interestsSection.id = 'interests';
+      main.appendChild(interestsSection);
+
+      main.appendChild(renderResearch(data.research));
+      main.appendChild(renderContact(data.contact));
+
+      renderFooter(data.footer);
+
+      initScrollReveal();
+    }
+
+    init();
   </script>
 
 </body>

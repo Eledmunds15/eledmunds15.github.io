@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "title": "Ethan Edmunds — Materials Scientist & PhD Researcher",
+    "description": "PhD candidate at the University of Sheffield researching irradiation damage in fusion reactor materials. Funded by UKAEA. Based in Sheffield, UK."
+  },
+
+  "nav": {
+    "wordmark": "Ethan Edmunds",
+    "links": [
+      { "label": "The Work",  "href": "#work"      },
+      { "label": "Interests", "href": "#interests"  },
+      { "label": "Research",  "href": "#research"   },
+      { "label": "Contact",   "href": "#contact"    }
+    ]
+  },
+
+  "hero": {
+    "kicker": "Materials Scientist · Doctoral Researcher · Founder",
+    "name": "Ethan Edmunds",
+    "tagline": "PhD candidate at the University of Sheffield researching <strong>irradiation damage in fusion reactor materials</strong>. Funded by UKAEA. Building for the long term.",
+    "buttons": [
+      { "label": "My Research", "href": "#research", "style": "primary" },
+      { "label": "Get in Touch", "href": "#contact", "style": "ghost"  }
+    ],
+    "footnotes": [
+      { "label": "Current Role", "value": "PhD Candidate, Sheffield" },
+      { "label": "Funded By",    "value": "EPSRC CDT & UKAEA"       },
+      { "label": "Based",        "value": "Sheffield, UK"            },
+      { "label": "Supervisor",   "value": "Prof. Christopher Race"   }
+    ]
+  },
+
+  "work": {
+    "tag": "The Work",
+    "title": "What I Do.",
+    "cards": [
+      {
+        "n": "01",
+        "label": "Nuclear & Industrial Engineering",
+        "title": "Engineering in the Nuclear Sector",
+        "org": "AtkinsRéalis Ltd. · Sheffield · 2022–2023",
+        "body": "Two summers working across structural and nuclear engineering at AtkinsRéalis. I coordinated virtual site access across UK nuclear facilities — managing 3D scanning programmes and digital twin workflows. Alongside that: FEA on tidal gate structures, concept design for modular decommissioning facilities, graphite cooling rig design, and nuclear facility loading calculations in MathCAD."
+      },
+      {
+        "n": "02",
+        "label": "Doctoral Research",
+        "title": "Fusion Materials & Irradiation Damage",
+        "org": "University of Sheffield & UKAEA · 2024–Present",
+        "body": "My PhD sits at the intersection of atomistic simulation, mesoscale modelling, and crystal plasticity — asking how irradiation damage changes the way dislocations move through a material, and what that means for the long-term structural performance of fusion reactor components. Jointly funded by the EPSRC CDT in Fusion Power and the UK Atomic Energy Authority."
+      },
+      {
+        "n": "03",
+        "label": "Teaching & Engineering Leadership",
+        "title": "Teaching, Rocketry & VTOL Aircraft",
+        "org": "University of Sheffield · 2021–Present",
+        "body": "Graduate Teaching Assistant across the Faculty of Engineering — ELE221 Mechatronics and MAC222 Aerospace Design II. Before the PhD, I led the analysis team on Project Sunride (CFD optimisation of rocket fins for the Karman Bravo high-power rocket) and served as structural design engineer on Project Hex, a student-built VTOL aircraft programme."
+      }
+    ]
+  },
+
+  "interests": {
+    "tag": "Interests",
+    "title": "What I Think About.",
+    "cards": [
+      {
+        "n": "01",
+        "title": "Multiscale Materials Modelling",
+        "body": "The hardest thing in materials science isn't running a simulation — it's bridging the gap between what happens at the atomic scale and what you actually measure in a tensile test. I'm interested in the physics that connects nanoscale defect behaviour to real-world structural performance, and in building models rigorous enough to be predictive rather than just descriptive."
+      },
+      {
+        "n": "02",
+        "title": "Materials for Extreme Environments",
+        "body": "Fusion reactors, hypersonic vehicles, next-generation fission systems — the most important engineering problems of the next century are, at root, materials problems. I'm drawn to the regimes where conventional understanding breaks down: high fluence irradiation, extreme temperatures, complex stress states. These are the environments where getting the materials right actually matters."
+      },
+      {
+        "n": "03",
+        "title": "Sustainable Energy",
+        "body": "Fusion is the long game. Nuclear fission is the bridge. Both need better materials, better engineering, and more people willing to think seriously about what it takes to build energy systems that last. I'm interested in the technical path to abundant clean energy — not just the politics of it, but the actual science and engineering that has to work."
+      }
+    ]
+  },
+
+  "research": {
+    "tag": "Research",
+    "title": "Research & Published Work.",
+    "items": [
+      {
+        "title": "Dislocation Mobility in the Presence of Abundant Point Defects",
+        "badges": [
+          { "text": "Active · PhD",                        "type": "active" },
+          { "text": "University of Sheffield & UKAEA",     "type": "pub"    }
+        ],
+        "description": "Simulating how irradiation damage affects creep performance in fusion reactor structural components. The work spans atomistic simulations, mesoscale modelling, and crystal plasticity — connecting nanoscale defect physics to real-world structural behaviour. Supervised by Prof. Christopher Race, Prof. Hector Basoalto-Ibarra, and Dr. Chris Hardie (UKAEA).",
+        "link": null
+      },
+      {
+        "title": "Classification of Microstructural Defects in Additively Manufactured Aerospace Metals using Machine Learning",
+        "badges": [
+          { "text": "Published · 2024",               "type": "pub" },
+          { "text": "Materials Science & Technology", "type": "pub" }
+        ],
+        "description": "Machine learning techniques applied to identify and classify internal defects in additively manufactured metal components — with direct implications for structural integrity assurance in aerospace and high-performance manufacturing.",
+        "link": {
+          "label": "Read paper → DOI: 10.1177/02670836241308470",
+          "href":  "https://doi.org/10.1177/02670836241308470"
+        }
+      }
+    ]
+  },
+
+  "contact": {
+    "tag": "Contact",
+    "title": "Get in Touch.",
+    "intro": "Open to conversations about nuclear materials, fusion energy, advanced manufacturing, and early-stage collaboration.",
+    "sub": "Whether you're from industry, academia, or just curious — I'd be glad to hear from you. Based in Sheffield, open to conferences, research visits, and partnerships.",
+    "links": [
+      { "type": "Email",    "label": "ethanedmunds15@gmail.com",    "href": "mailto:ethanedmunds15@gmail.com"         },
+      { "type": "LinkedIn", "label": "linkedin.com/in/ethanedmunds", "href": "https://linkedin.com/in/ethanedmunds"   },
+      { "type": "ORCID",   "label": "0009-0007-2323-5696",          "href": "https://orcid.org/0009-0007-2323-5696"  }
+    ]
+  },
+
+  "footer": {
+    "wordmark": "Ethan Edmunds",
+    "copy": "© 2026 Ethan Edmunds · Sheffield, UK · edmundsindustries.com"
+  }
+}
