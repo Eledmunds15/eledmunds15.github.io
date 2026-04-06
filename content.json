@@ -65,26 +65,34 @@
       {
         "n": "01",
         "title": "Multiscale Materials Modelling",
-        "body": "The hardest thing in materials science isn't running a simulation — it's bridging the gap between what happens at the atomic scale and what you actually measure in a tensile test. I'm interested in the physics that connects nanoscale defect behaviour to real-world structural performance, and in building models rigorous enough to be predictive rather than just descriptive."
+        "body": "The hardest thing in materials science isn't running a simulation — it's bridging the gap between what happens at the atomic scale and what you actually measure in a tensile test. I'm interested in the physics that connects nanoscale defect behaviour to real-world structural performance, and in building models rigorous enough to be predictive rather than just descriptive.",
+        "gradient": "radial-gradient(ellipse at 25% 60%, #1a3a6b 0%, #0c1a3a 45%, #0c0c0c 80%)",
+        "image": null
       },
       {
         "n": "02",
         "title": "Materials for Extreme Environments",
-        "body": "Fusion reactors, hypersonic vehicles, next-generation fission systems — the most important engineering problems of the next century are, at root, materials problems. I'm drawn to the regimes where conventional understanding breaks down: high fluence irradiation, extreme temperatures, complex stress states. These are the environments where getting the materials right actually matters."
+        "body": "Fusion reactors, hypersonic vehicles, next-generation fission systems — the most important engineering problems of the next century are, at root, materials problems. I'm drawn to the regimes where conventional understanding breaks down: high fluence irradiation, extreme temperatures, complex stress states. These are the environments where getting the materials right actually matters.",
+        "gradient": "radial-gradient(ellipse at 75% 40%, #5c1a00 0%, #2e0e00 45%, #0c0c0c 80%)",
+        "image": null
       },
       {
         "n": "03",
         "title": "Sustainable Energy",
-        "body": "Fusion is the long game. Nuclear fission is the bridge. Both need better materials, better engineering, and more people willing to think seriously about what it takes to build energy systems that last. I'm interested in the technical path to abundant clean energy — not just the politics of it, but the actual science and engineering that has to work."
+        "body": "Fusion is the long game. Nuclear fission is the bridge. Both need better materials, better engineering, and more people willing to think seriously about what it takes to build energy systems that last. I'm interested in the technical path to abundant clean energy — not just the politics of it, but the actual science and engineering that has to work.",
+        "gradient": "radial-gradient(ellipse at 50% 70%, #003d2a 0%, #001a12 45%, #0c0c0c 80%)",
+        "image": null
       }
     ]
   },
 
   "research": {
-    "tag": "Research",
-    "title": "Research & Published Work.",
+    "tag": "Research & Projects",
+    "title": "Research, Ventures & Projects.",
+    "filters": ["All", "Research", "Published", "Projects"],
     "items": [
       {
+        "type": "research",
         "title": "Dislocation Mobility in the Presence of Abundant Point Defects",
         "badges": [
           { "text": "Active · PhD",                        "type": "active" },
@@ -94,6 +102,7 @@
         "link": null
       },
       {
+        "type": "published",
         "title": "Classification of Microstructural Defects in Additively Manufactured Aerospace Metals using Machine Learning",
         "badges": [
           { "text": "Published · 2024",               "type": "pub" },
@@ -104,6 +113,25 @@
           "label": "Read paper → DOI: 10.1177/02670836241308470",
           "href":  "https://doi.org/10.1177/02670836241308470"
         }
+      },
+      {
+        "type": "projects",
+        "title": "Edmunds",
+        "badges": [
+          { "text": "Active · Venture", "type": "project" }
+        ],
+        "description": "A science, engineering and technology company built for the long term. Founded alongside the PhD — developing the foundations of what Edmunds will become. Built around a simple belief: we can do better.",
+        "link": null
+      },
+      {
+        "type": "projects",
+        "title": "Project Sunride & Project Hex",
+        "badges": [
+          { "text": "Project · Engineering",          "type": "project" },
+          { "text": "University of Sheffield · 2023–2024", "type": "pub" }
+        ],
+        "description": "Analysis Team Lead on Project Sunride — CFD optimisation of rocket fins for the Karman Bravo high-power rocket. Structural Design Engineer on Project Hex — payload deployment systems and aerodynamic analysis for a student-built VTOL aircraft.",
+        "link": null
       }
     ]
   },
