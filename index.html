@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethan Edmunds — Edmunds</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+
+    /* ============================================================
+       ACCENT COLOUR — change this one value to restyle the site
+       Try: #3b82f6 (blue) | #f59e0b (amber) | #10b981 (green)
+            #e11d48 (red)   | #8b5cf6 (purple) | #ffffff (white)
+       ============================================================ */
+    :root {
+      --accent:       #3b82f6;
+
+      /* ── everything else ── */
+      --bg:           #0c0c0c;
+      --surface:      #141414;
+      --surface2:     #1a1a1a;
+      --border:       #222222;
+      --border-lt:    #2e2e2e;
+      --text:         #f5f5f5;
+      --text-2:       #a0a0a0;
+      --text-3:       #555555;
+      --font:         'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-lt); border-radius: 2px; }
+
+    /* ─────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      background: rgba(12,12,12,0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-logo {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--text-2);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 60px;
+    }
+
+    .hero-kicker {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: up 0.7s 0.1s ease forwards;
+    }
+
+    .hero-name {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: up 0.7s 0.2s ease forwards;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      color: var(--text-2);
+      max-width: 580px;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: up 0.7s 0.3s ease forwards;
+    }
+
+    .hero-sub strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: up 0.7s 0.4s ease forwards;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 0.7rem 1.6rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-2);
+      border: 1px solid var(--border-lt);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--text-2);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero-footnote {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: up 0.7s 0.55s ease forwards;
+    }
+
+    .fn-item { }
+
+    .fn-label {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 0.25rem;
+    }
+
+    .fn-val {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-2);
+    }
+
+    /* ─────────────────────────────────────────
+       SHARED SECTION STYLES
+    ───────────────────────────────────────── */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 2.5rem;
+      line-height: 1.2;
+    }
+
+    /* ─────────────────────────────────────────
+       ABOUT
+    ───────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-body p {
+      color: var(--text-2);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body strong { color: var(--text); font-weight: 500; }
+
+    .about-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .sidebar-row {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-row:last-child { border-bottom: none; }
+
+    .sidebar-key {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 0.2rem;
+    }
+
+    .sidebar-val {
+      font-size: 0.8rem;
+      color: var(--text-2);
+      line-height: 1.45;
+    }
+
+    /* ─────────────────────────────────────────
+       EXPERIENCE
+    ───────────────────────────────────────── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .exp-item:first-child { padding-top: 0; }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-item.show { opacity: 1; transform: none; }
+
+    .exp-date {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      padding-top: 0.15rem;
+    }
+
+    .exp-role {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+
+    .exp-org {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--text-3);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.6rem;
+    }
+
+    .exp-desc {
+      font-size: 0.85rem;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    /* ─────────────────────────────────────────
+       RESEARCH
+    ───────────────────────────────────────── */
+    .research-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .research-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.8rem 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s, transform 0.5s, border-color 0.2s;
+    }
+
+    .research-card.show { opacity: 1; transform: none; }
+    .research-card:hover { border-color: var(--border-lt); }
+
+    .rc-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .rc-badge {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+    }
+
+    .rc-badge-active {
+      background: rgba(59,130,246,0.12);
+      color: var(--accent);
+      border: 1px solid rgba(59,130,246,0.25);
+    }
+
+    .rc-badge-pub {
+      background: rgba(245,245,245,0.06);
+      color: var(--text-2);
+      border: 1px solid var(--border-lt);
+    }
+
+    .rc-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 0.7rem;
+    }
+
+    .rc-desc {
+      font-size: 0.85rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .rc-link {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: opacity 0.15s;
+    }
+
+    .rc-link:hover { opacity: 0.75; }
+
+    /* ─────────────────────────────────────────
+       VISION
+    ───────────────────────────────────────── */
+    .vision-quote {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.75;
+      max-width: 660px;
+      margin-bottom: 3rem;
+      border-left: 2px solid var(--accent);
+      padding-left: 1.5rem;
+    }
+
+    .vision-quote strong { color: var(--text); font-weight: 500; }
+
+    .vision-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .pillar {
+      background: var(--surface);
+      padding: 1.8rem;
+      transition: background 0.2s;
+    }
+
+    .pillar:hover { background: var(--surface2); }
+
+    .pillar-n {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.6rem;
+    }
+
+    .pillar-t {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .pillar-d {
+      font-size: 0.8rem;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    /* ─────────────────────────────────────────
+       CONTACT
+    ───────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-intro {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .contact-sub {
+      font-size: 0.82rem;
+      color: var(--text-3);
+      line-height: 1.7;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text-2);
+      font-size: 0.82rem;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .contact-row:last-child { border-bottom: none; }
+    .contact-row:hover { background: var(--surface2); color: var(--text); }
+
+    .contact-row-type {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      min-width: 60px;
+    }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      text-decoration: none;
+    }
+
+    .footer-copy {
+      font-size: 0.68rem;
+      color: var(--text-3);
+    }
+
+    /* ─────────────────────────────────────────
+       ANIMATIONS
+    ───────────────────────────────────────── */
+    @keyframes up {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────── */
+    @media (max-width: 720px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .hero, .section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .vision-pillars { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">E<span>.</span>dmunds</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-kicker">Materials Scientist &nbsp;·&nbsp; Doctoral Researcher &nbsp;·&nbsp; Founder</p>
+    <h1 class="hero-name">Ethan Edmunds</h1>
+    <p class="hero-sub">
+      PhD candidate at the University of Sheffield researching <strong>irradiation damage in fusion reactor materials</strong>. Funded by UKAEA. Building <strong>Edmunds</strong> — a science, engineering and technology company for the long term.
+    </p>
+    <div class="hero-btns">
+      <a href="#research" class="btn btn-primary">My Research</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+    <div class="hero-footnote">
+      <div class="fn-item">
+        <div class="fn-label">Current Role</div>
+        <div class="fn-val">PhD Candidate, Sheffield</div>
+      </div>
+      <div class="fn-item">
+        <div class="fn-label">Funded By</div>
+        <div class="fn-val">EPSRC CDT &amp; UKAEA</div>
+      </div>
+      <div class="fn-item">
+        <div class="fn-label">Based</div>
+        <div class="fn-val">Sheffield, UK</div>
+      </div>
+      <div class="fn-item">
+        <div class="fn-label">Building</div>
+        <div class="fn-val">Edmunds</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <p class="section-tag">About</p>
+    <h2 class="section-title">Engineer, Scientist, Builder.</h2>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>I'm a materials scientist working at the intersection of <strong>nuclear energy, advanced materials, and computational modelling</strong>. My PhD at Sheffield, jointly funded by the EPSRC CDT in Fusion Power and the UK Atomic Energy Authority, focuses on how irradiation damage governs the structural performance of fusion reactor components.</p>
+        <p>Before materials, I studied <strong>Aerospace Engineering</strong> at Sheffield — graduating with a First Class degree, specialising in aeromechanics. My undergraduate research on machine learning classification of defects in additively manufactured metals was published in <strong>Materials Science and Technology</strong>.</p>
+        <p>I've done two stints at <strong>AtkinsRéalis</strong> working on nuclear facility design, structural analysis, and virtual site access. I've also worked in software in Singapore, and led engineering teams on student rocketry and aircraft projects.</p>
+        <p>Alongside my PhD, I'm laying the foundations of <strong>Edmunds</strong> — built around a simple belief: we can do better.</p>
+      </div>
+      <div class="about-sidebar">
+        <div class="sidebar-row">
+          <div class="sidebar-key">PhD</div>
+          <div class="sidebar-val">Materials Science &amp; Engineering<br>University of Sheffield, 2024–</div>
+        </div>
+        <div class="sidebar-row">
+          <div class="sidebar-key">BEng</div>
+          <div class="sidebar-val">Aerospace Engineering, 1st Class<br>University of Sheffield, 2021–2024</div>
+        </div>
+        <div class="sidebar-row">
+          <div class="sidebar-key">Sponsor</div>
+          <div class="sidebar-val">UK Atomic Energy Authority<br>EPSRC CDT in Fusion Power</div>
+        </div>
+        <div class="sidebar-row">
+          <div class="sidebar-key">Published</div>
+          <div class="sidebar-val">Materials Science &amp; Technology, 2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <p class="section-tag">Experience</p>
+    <h2 class="section-title">Where I've Worked &amp; Built.</h2>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-date">2025 – Now</div>
+        <div>
+          <div class="exp-role">Graduate Teaching Assistant</div>
+          <div class="exp-org">University of Sheffield</div>
+          <p class="exp-desc">Teaching across the Faculty of Engineering — ELE221 Mechatronics and MAC222 Aerospace Design II.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">2023</div>
+        <div>
+          <div class="exp-role">Summer Student — Nuclear Engineering</div>
+          <div class="exp-org">AtkinsRéalis Ltd., Sheffield</div>
+          <p class="exp-desc">Project Coordinator for Virtual Site Access — managing 3D scanning of nuclear sites across the UK. Designed graphite cooling rigs and developed MathCAD templates for nuclear facility loading calculations.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">2022</div>
+        <div>
+          <div class="exp-role">Summer Student — Structural Engineering</div>
+          <div class="exp-org">AtkinsRéalis Ltd., Sheffield</div>
+          <p class="exp-desc">Concept models for modular nuclear decommissioning facilities. FEA on tidal gate structures. Optimised engineering onboarding using Excel VBA and PowerApps.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">2021</div>
+        <div>
+          <div class="exp-role">Software Engineering Intern</div>
+          <div class="exp-org">TrueVA Capital Ltd., Singapore</div>
+          <p class="exp-desc">Designed an online platform and MySQL database to collect and process digital transition data.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">2023–2024</div>
+        <div>
+          <div class="exp-role">Analysis Team Lead &amp; Structural Design Engineer</div>
+          <div class="exp-org">Project Sunride &amp; Project Hex, Sheffield</div>
+          <p class="exp-desc">CFD optimisation of rocket fins for the Karman Bravo high-power rocket. Payload deployment systems and aerodynamic analysis for a student VTOL aircraft.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="section" id="research">
+    <p class="section-tag">Research</p>
+    <h2 class="section-title">Current &amp; Published Work.</h2>
+    <div class="research-cards">
+
+      <div class="research-card">
+        <div class="rc-meta">
+          <span class="rc-badge rc-badge-active">Active · PhD</span>
+          <span class="rc-badge rc-badge-pub">University of Sheffield &amp; UKAEA</span>
+        </div>
+        <h3 class="rc-title">Dislocation Mobility in the Presence of Abundant Point Defects</h3>
+        <p class="rc-desc">Simulating how irradiation damage affects creep performance in fusion reactor structural components. Spans atomistic simulations, mesoscale modelling, and crystal plasticity — connecting nanoscale physics to real-world structural behaviour. Supervised by Prof. Christopher Race, Prof. Hector Basoalto-Ibarra, and Dr. Chris Hardie (UKAEA).</p>
+      </div>
+
+      <div class="research-card">
+        <div class="rc-meta">
+          <span class="rc-badge rc-badge-pub">Published · 2024</span>
+          <span class="rc-badge rc-badge-pub">Materials Science &amp; Technology</span>
+        </div>
+        <h3 class="rc-title">Classification of Microstructural Defects in Additively Manufactured Aerospace Metals using Machine Learning</h3>
+        <p class="rc-desc">Machine learning techniques applied to identify and classify internal defects in additively manufactured metal components — with direct implications for structural integrity assurance in aerospace and high-performance manufacturing.</p>
+        <a href="https://doi.org/10.1177/02670836241308470" target="_blank" class="rc-link">Read paper → DOI: 10.1177/02670836241308470</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section class="section" id="vision">
+    <p class="section-tag">Vision</p>
+    <h2 class="section-title">Building Edmunds.</h2>
+    <div class="vision-quote">
+      "We work on the frontiers of science, engineering and technology — developing solutions that move from the lab to the world, <strong>for the benefit of the world</strong>. We believe we can do better."
+    </div>
+    <div class="vision-pillars">
+      <div class="pillar">
+        <div class="pillar-n">01</div>
+        <div class="pillar-t">Nuclear &amp; Clean Energy</div>
+        <p class="pillar-d">Fusion is gaining momentum. Nuclear is in a global renaissance. The materials and engineering challenges between today's prototypes and tomorrow's power plants are exactly the problems worth dedicating a career to.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-n">02</div>
+        <div class="pillar-t">Advanced Materials</div>
+        <p class="pillar-d">Materials are the limiting factor in extreme environments — reactors, engines, hardware. Better materials unlock every other domain. It's the foundation everything else is built on.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-n">03</div>
+        <div class="pillar-t">Science to Engineering</div>
+        <p class="pillar-d">The gap between fundamental research and real-world application is where value is created. Edmunds is being built to operate at both ends — and every stage in between.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <p class="section-tag">Contact</p>
+    <h2 class="section-title">Get in Touch.</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">Open to conversations about nuclear materials, fusion energy, advanced manufacturing, and early-stage collaboration.</p>
+        <p class="contact-sub">Whether you're from industry, academia, or just curious — I'd be glad to hear from you. Based in Sheffield, open to conferences, research visits, and partnerships.</p>
+      </div>
+      <div class="contact-items">
+        <a href="mailto:ethanedmunds15@gmail.com" class="contact-row">
+          <span class="contact-row-type">Email</span>
+          ethanedmunds15@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/ethanedmunds" target="_blank" class="contact-row">
+          <span class="contact-row-type">LinkedIn</span>
+          linkedin.com/in/ethanedmunds
+        </a>
+        <a href="https://orcid.org/0009-0007-2323-5696" target="_blank" class="contact-row">
+          <span class="contact-row-type">ORCID</span>
+          0009-0007-2323-5696
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-logo">Edmunds</a>
+    <span class="footer-copy">© 2026 Ethan Edmunds · Sheffield, UK · edmundsindustries.com</span>
+  </footer>
+
+  <script>
+    // Scroll-reveal for experience + research cards
+    const items = document.querySelectorAll('.exp-item, .research-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('show'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    items.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
