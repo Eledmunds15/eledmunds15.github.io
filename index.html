@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ethan Edmunds — Edmunds</title>
+  <title>Ethan Edmunds — Materials Scientist & PhD Researcher</title>
+  <meta name="description" content="PhD candidate at the University of Sheffield researching irradiation damage in fusion reactor materials. Funded by UKAEA. Founder of Edmunds."/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
 
@@ -293,57 +294,86 @@
     }
 
     /* ─────────────────────────────────────────
-       EXPERIENCE
+       EXPERIENCE — FEATURED AREAS
     ───────────────────────────────────────── */
-    .exp-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .exp-item {
+    .featured-grid {
       display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 2rem;
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.5s, transform 0.5s;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
     }
 
-    .exp-item:first-child { padding-top: 0; }
-    .exp-item:last-child { border-bottom: none; }
-    .exp-item.show { opacity: 1; transform: none; }
+    .featured-card {
+      background: var(--surface);
+      padding: 1.8rem;
+      transition: background 0.2s;
+    }
 
-    .exp-date {
-      font-size: 0.7rem;
-      font-weight: 500;
+    .featured-card:hover { background: var(--surface2); }
+
+    .featured-card-n {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--accent);
-      letter-spacing: 0.04em;
-      padding-top: 0.15rem;
+      margin-bottom: 0.5rem;
     }
 
-    .exp-role {
-      font-size: 0.95rem;
+    .featured-card-badge {
+      display: inline-block;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.5rem;
+      border-radius: 3px;
+      margin-bottom: 0.8rem;
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+      color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    }
+
+    .featured-card-badge-upcoming {
+      background: rgba(245,158,11,0.1);
+      color: #f59e0b;
+      border: 1px solid rgba(245,158,11,0.25);
+    }
+
+    .featured-card-title {
+      font-size: 1rem;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
     }
 
-    .exp-org {
-      font-size: 0.75rem;
-      font-weight: 400;
+    .featured-card-org {
+      font-size: 0.72rem;
       color: var(--text-3);
-      letter-spacing: 0.04em;
-      margin-bottom: 0.6rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.8rem;
     }
 
-    .exp-desc {
-      font-size: 0.85rem;
+    .featured-card-desc {
+      font-size: 0.82rem;
       color: var(--text-2);
-      line-height: 1.7;
+      line-height: 1.75;
     }
+
+    .exp-cv-link {
+      font-size: 0.72rem;
+      color: var(--text-3);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.15s;
+    }
+
+    .exp-cv-link:hover { color: var(--text-2); }
 
     /* ─────────────────────────────────────────
        RESEARCH
@@ -359,7 +389,6 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.8rem 2rem;
-      transition: border-color 0.2s, transform 0.2s;
       opacity: 0;
       transform: translateY(10px);
       transition: opacity 0.5s, transform 0.5s, border-color 0.2s;
@@ -386,15 +415,21 @@
     }
 
     .rc-badge-active {
-      background: rgba(59,130,246,0.12);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
       color: var(--accent);
-      border: 1px solid rgba(59,130,246,0.25);
+      border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
     }
 
     .rc-badge-pub {
       background: rgba(245,245,245,0.06);
       color: var(--text-2);
       border: 1px solid var(--border-lt);
+    }
+
+    .rc-badge-project {
+      background: rgba(16,185,129,0.1);
+      color: #10b981;
+      border: 1px solid rgba(16,185,129,0.25);
     }
 
     .rc-title {
@@ -578,7 +613,7 @@
       .nav-links { display: none; }
       .hero, .section { padding-left: 1.5rem; padding-right: 1.5rem; }
       .about-grid { grid-template-columns: 1fr; }
-      .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .featured-grid { grid-template-columns: 1fr; }
       .vision-pillars { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       footer { flex-direction: column; gap: 0.75rem; text-align: center; }
@@ -595,7 +630,6 @@
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#research">Research</a></li>
-      <li><a href="#vision">Vision</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -666,61 +700,41 @@
   <!-- EXPERIENCE -->
   <section class="section" id="experience">
     <p class="section-tag">Experience</p>
-    <h2 class="section-title">Where I've Worked &amp; Built.</h2>
-    <div class="exp-list">
+    <h2 class="section-title">Featured Areas.</h2>
+    <div class="featured-grid">
 
-      <div class="exp-item">
-        <div class="exp-date">2025 – Now</div>
-        <div>
-          <div class="exp-role">Graduate Teaching Assistant</div>
-          <div class="exp-org">University of Sheffield</div>
-          <p class="exp-desc">Teaching across the Faculty of Engineering — ELE221 Mechatronics and MAC222 Aerospace Design II.</p>
-        </div>
+      <div class="featured-card">
+        <div class="featured-card-n">01</div>
+        <div class="featured-card-badge">Nuclear &amp; Industrial</div>
+        <h3 class="featured-card-title">Engineering in the Nuclear Sector</h3>
+        <p class="featured-card-org">AtkinsRéalis Ltd. · Sheffield · 2022–2023</p>
+        <p class="featured-card-desc">Two summers working across structural and nuclear engineering — from FEA on tidal gate structures and modular decommissioning concepts, to coordinating 3D scanning of nuclear sites across the UK and producing loading calculations for nuclear facilities.</p>
       </div>
 
-      <div class="exp-item">
-        <div class="exp-date">2023</div>
-        <div>
-          <div class="exp-role">Summer Student — Nuclear Engineering</div>
-          <div class="exp-org">AtkinsRéalis Ltd., Sheffield</div>
-          <p class="exp-desc">Project Coordinator for Virtual Site Access — managing 3D scanning of nuclear sites across the UK. Designed graphite cooling rigs and developed MathCAD templates for nuclear facility loading calculations.</p>
-        </div>
+      <div class="featured-card">
+        <div class="featured-card-n">02</div>
+        <div class="featured-card-badge featured-card-badge-upcoming">Upcoming · 2025</div>
+        <h3 class="featured-card-title">Science Policy</h3>
+        <p class="featured-card-org">Dept. for Energy Security &amp; Net Zero (DESNZ) · London</p>
+        <p class="featured-card-desc">Placement with DESNZ working at the interface of science, engineering and government — engaging with energy transition policy, fusion and advanced nuclear strategy, and the role of research in informing national energy decisions.</p>
       </div>
 
-      <div class="exp-item">
-        <div class="exp-date">2022</div>
-        <div>
-          <div class="exp-role">Summer Student — Structural Engineering</div>
-          <div class="exp-org">AtkinsRéalis Ltd., Sheffield</div>
-          <p class="exp-desc">Concept models for modular nuclear decommissioning facilities. FEA on tidal gate structures. Optimised engineering onboarding using Excel VBA and PowerApps.</p>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-date">2021</div>
-        <div>
-          <div class="exp-role">Software Engineering Intern</div>
-          <div class="exp-org">TrueVA Capital Ltd., Singapore</div>
-          <p class="exp-desc">Designed an online platform and MySQL database to collect and process digital transition data.</p>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-date">2023–2024</div>
-        <div>
-          <div class="exp-role">Analysis Team Lead &amp; Structural Design Engineer</div>
-          <div class="exp-org">Project Sunride &amp; Project Hex, Sheffield</div>
-          <p class="exp-desc">CFD optimisation of rocket fins for the Karman Bravo high-power rocket. Payload deployment systems and aerodynamic analysis for a student VTOL aircraft.</p>
-        </div>
+      <div class="featured-card">
+        <div class="featured-card-n">03</div>
+        <div class="featured-card-badge">Academia &amp; Teaching</div>
+        <h3 class="featured-card-title">Research, Teaching &amp; Engineering Leadership</h3>
+        <p class="featured-card-org">University of Sheffield · 2021–Present</p>
+        <p class="featured-card-desc">Graduate Teaching Assistant across the Faculty of Engineering (Mechatronics, Aerospace Design). Previously led analysis and structural design teams on Project Sunride and Project Hex — a high-power rocketry team and a student VTOL aircraft programme.</p>
       </div>
 
     </div>
+    <a href="https://linkedin.com/in/ethanedmunds" target="_blank" rel="noopener noreferrer" class="exp-cv-link">Full CV on LinkedIn →</a>
   </section>
 
-  <!-- RESEARCH -->
+  <!-- RESEARCH & PROJECTS -->
   <section class="section" id="research">
-    <p class="section-tag">Research</p>
-    <h2 class="section-title">Current &amp; Published Work.</h2>
+    <p class="section-tag">Research &amp; Projects</p>
+    <h2 class="section-title">Research, Ventures &amp; Projects.</h2>
     <div class="research-cards">
 
       <div class="research-card">
@@ -739,35 +753,26 @@
         </div>
         <h3 class="rc-title">Classification of Microstructural Defects in Additively Manufactured Aerospace Metals using Machine Learning</h3>
         <p class="rc-desc">Machine learning techniques applied to identify and classify internal defects in additively manufactured metal components — with direct implications for structural integrity assurance in aerospace and high-performance manufacturing.</p>
-        <a href="https://doi.org/10.1177/02670836241308470" target="_blank" class="rc-link">Read paper → DOI: 10.1177/02670836241308470</a>
+        <a href="https://doi.org/10.1177/02670836241308470" target="_blank" rel="noopener noreferrer" class="rc-link">Read paper → DOI: 10.1177/02670836241308470</a>
       </div>
 
-    </div>
-  </section>
+      <div class="research-card">
+        <div class="rc-meta">
+          <span class="rc-badge rc-badge-project">Active · Venture</span>
+        </div>
+        <h3 class="rc-title">Edmunds</h3>
+        <p class="rc-desc">A science, engineering and technology company built for the long term. Founded alongside the PhD — developing the foundations of what Edmunds will become. Built around a simple belief: we can do better.</p>
+      </div>
 
-  <!-- VISION -->
-  <section class="section" id="vision">
-    <p class="section-tag">Vision</p>
-    <h2 class="section-title">Building Edmunds.</h2>
-    <div class="vision-quote">
-      "We work on the frontiers of science, engineering and technology — developing solutions that move from the lab to the world, <strong>for the benefit of the world</strong>. We believe we can do better."
-    </div>
-    <div class="vision-pillars">
-      <div class="pillar">
-        <div class="pillar-n">01</div>
-        <div class="pillar-t">Nuclear &amp; Clean Energy</div>
-        <p class="pillar-d">Fusion is gaining momentum. Nuclear is in a global renaissance. The materials and engineering challenges between today's prototypes and tomorrow's power plants are exactly the problems worth dedicating a career to.</p>
+      <div class="research-card">
+        <div class="rc-meta">
+          <span class="rc-badge rc-badge-project">Project · Engineering</span>
+          <span class="rc-badge rc-badge-pub">University of Sheffield · 2023–2024</span>
+        </div>
+        <h3 class="rc-title">Project Sunride &amp; Project Hex</h3>
+        <p class="rc-desc">Analysis Team Lead on Project Sunride — CFD optimisation of rocket fins for the Karman Bravo high-power rocket. Structural Design Engineer on Project Hex — payload deployment systems and aerodynamic analysis for a student-built VTOL aircraft.</p>
       </div>
-      <div class="pillar">
-        <div class="pillar-n">02</div>
-        <div class="pillar-t">Advanced Materials</div>
-        <p class="pillar-d">Materials are the limiting factor in extreme environments — reactors, engines, hardware. Better materials unlock every other domain. It's the foundation everything else is built on.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-n">03</div>
-        <div class="pillar-t">Science to Engineering</div>
-        <p class="pillar-d">The gap between fundamental research and real-world application is where value is created. Edmunds is being built to operate at both ends — and every stage in between.</p>
-      </div>
+
     </div>
   </section>
 
@@ -785,11 +790,11 @@
           <span class="contact-row-type">Email</span>
           ethanedmunds15@gmail.com
         </a>
-        <a href="https://linkedin.com/in/ethanedmunds" target="_blank" class="contact-row">
+        <a href="https://linkedin.com/in/ethanedmunds" target="_blank" rel="noopener noreferrer" class="contact-row">
           <span class="contact-row-type">LinkedIn</span>
           linkedin.com/in/ethanedmunds
         </a>
-        <a href="https://orcid.org/0009-0007-2323-5696" target="_blank" class="contact-row">
+        <a href="https://orcid.org/0009-0007-2323-5696" target="_blank" rel="noopener noreferrer" class="contact-row">
           <span class="contact-row-type">ORCID</span>
           0009-0007-2323-5696
         </a>
